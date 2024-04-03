@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO LIST</title>
+    <style>
+        body{
+            margin: 0;
+            background-color: bisque;     
+        }
+        h1{
+            color: azure;
+        }
+        #wrapper h1{
+            display: flex;
+            justify-content: center;
+        }
+        #input{
+            border-radius: 6px; 
+            border: 3px solid black;
+            margin-top: 30px;
+            height: 25px;
+            padding-left: 10px;
+          
+            
+        }
+        #wrapper{
+            height: 500px; 
+            width: 400px;
+            margin: 200px auto 0px auto;
+            background-color: black;
+            border-radius: 10px;
+            padding: 30px;
+            border: white 5px solid;
+            color: azure;
+        }
+        #add{
+            background-color: rgb(0, 60, 255);
+            border-radius: 10px;
+            height: 25px;
+            width: 50px;
+        }
+      .hi{
+          margin: 10px 78px;
+      }
+h2{
+  
+    color: rgb(6, 7, 8);
+    display: flex;
+   justify-content: center;
+ 
+}
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+   <h1>TODO LIST</h1>
+   <div class="hi"><input type="text" id="input" placeholder="Type the task">
+    <button id="add">Add</button></div>
+    <div id="todolist">  
+
+    </div>
+  </div>
+  <h2>click the list to delete</h2>
+<script>
+  let button = document.getElementById('add')
+  let input = document.getElementById('input');
+  let todos = [];
+  button.addEventListener('click',()=>
+  {
+      todos.push(input.value)
+      console.log(todos)
+      addtodo(input.value)
+      input.value=''
+  })
+  function addtodo(todo)
+  {
+      let para = document.createElement('p');
+      para.innerText = todo;
+      todolist.appendChild(para)
+      para.addEventListener('click',()=>
+      {
+para.style.textDecoration = 'line-through'
+todolist.removeChild(para)
+      })
+  }
+</script>
+</body>
+</html>
